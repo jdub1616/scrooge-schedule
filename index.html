@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tournament Schedule</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 16px;
+    max-width: 500px;
+    margin: auto;
+  }
+  h2 {
+    text-align: center;
+  }
+  select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .game {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  .time {
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Select Your Team</h2>
+
+<select id="dateSelect">
+  <option value="">Select Date</option>
+</select>
+
+<select id="divisionSelect">
+  <option value="">Select Division</option>
+</select>
+
+<select id="teamSelect" disabled>
+  <option value="">Select Team</option>
+</select>
+
+<div id="schedule"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
