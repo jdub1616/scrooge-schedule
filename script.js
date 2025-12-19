@@ -4,6 +4,27 @@
 const SHEET_ID = "18_M4L-tnd_t4mUZr1ti1V97hJAVHRP6BCaets35q09w"; // <-- replace this
 const SHEET_NAME = "Schedule";
 const URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
+// Divisions that have playoffs listed separately
+const DIVISIONS_WITH_PLAYOFFS = [
+  "Mens Open",
+  "Mens Rec",
+  "Co-ed Open",
+  "Co-ed Open",
+  "Womens Open",
+  "U15 Boys",
+  "U15/16 Girls",
+  "U16 Boys",
+  "U12 Boys", 
+  "U12 Girls",
+  "U13 Boys",
+  "U13 Girls",
+  "U14 Boys", 
+  "U14 Girls",
+  "U17 Boys",
+  "U17 Girls", 
+  "U18 Boys", 
+];
+
 
 // ===============================
 // STATE
@@ -17,6 +38,8 @@ const dateSelect = document.getElementById("dateSelect");
 const divisionSelect = document.getElementById("divisionSelect");
 const teamSelect = document.getElementById("teamSelect");
 const scheduleDiv = document.getElementById("schedule");
+const divisionNotice = document.getElementById("divisionNotice");
+
 
 // ===============================
 // FETCH DATA
@@ -76,6 +99,11 @@ dateSelect.addEventListener("change", () => {
 // ===============================
 divisionSelect.addEventListener("change", () => {
   teamSelect.innerHTML = `<option value="">Select Team</option>`;
+  if (DIVISIONS_WITH_PLAYOFFS.includes(divisionSelect.value)) {
+     divisionNotice.style.display = "block";
+  } else {
+     divisionNotice.style.display = "none";
+  }
   scheduleDiv.innerHTML = "";
 
   const teams = data
