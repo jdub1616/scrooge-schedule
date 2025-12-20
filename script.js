@@ -5,7 +5,6 @@ const SHEET_ID = "18_M4L-tnd_t4mUZr1ti1V97hJAVHRP6BCaets35q09w"; // <-- replace 
 const SHEET_NAME = "Schedule";
 const URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
 // Divisions that have playoffs listed separately
-const PLAYOFFS_URL = "https://london-optimist-sports-centre.ezleagues.ezfacility.com/leagues.aspx?type=t";
 const DIVISIONS_WITH_PLAYOFFS = [
   "Mens Open",
   "Mens Rec",
@@ -86,21 +85,6 @@ dateSelect.addEventListener("change", () => {
   const divisions = data
     .filter(row => row.Date === dateSelect.value)
     .map(row => row.Division);
-
-  const notice = DIVISION_PLAYOFF_LINKS[divisionSelect.value];
-
-  if (DIVISIONS_WITH_PLAYOFFS.includes(divisionSelect.value)) {
-   divisionNotice.innerHTML = `
-     <strong>Playoffs Notice</strong><br />
-     <a href="${PLAYOFFS_URL}" target="_blank" rel="noopener noreferrer">
-       This division has playoffs. Tap here to view the playoff schedule.
-     </a>
-   `;
-   divisionNotice.style.display = "block";
- } else {
-   divisionNotice.style.display = "none";
- }
-
 
   [...new Set(divisions)].forEach(div => {
     const opt = document.createElement("option");
@@ -198,4 +182,3 @@ function formatDate(dateStr) {
     day: "numeric"
   });
 }
-
