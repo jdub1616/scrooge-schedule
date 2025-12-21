@@ -11,6 +11,8 @@ const DIVISIONS_WITH_PLAYOFFS = [
   "Co-ed Open",
   "Co-ed Rec",
   "Womens Open",
+  "Womens 30+",
+  "Womens Rec",
   "U15 Boys",
   "U15/16 Girls",
   "U16 Boys",
